@@ -7,7 +7,11 @@
 		{
 			"Name": "TD_IciclesGenerator",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine",
+				"GeometryScriptingEditor"
+			]
 		}
 	],
 	"Plugins": [
