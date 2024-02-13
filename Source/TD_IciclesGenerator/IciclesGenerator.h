@@ -3,6 +3,7 @@
 #include "CoreMinimal.h"
 #include "GeometryActors/GeneratedDynamicMeshActor.h"
 #include "IciclesGenerator.generated.h"
+#include <GeometryScript/GeometryScriptSelectionTypes.h>
 
 class UDynamicMeshComponent;
 class USphereComponent;
@@ -12,47 +13,69 @@ class TD_ICICLESGENERATOR_API AIciclesGenerator : public AGeneratedDynamicMeshAc
 {
 	GENERATED_BODY()
 
-	/** Camera boom positioning the camera behind the character */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
-	class USphereComponent* RadiusVisualizer;
-
 public:
-	AIciclesGenerator();
-
+	/** Please add a function description */
 	UFUNCTION(BlueprintCallable)
-		void Process(UDynamicMeshComponent* DynaMesh);
+		void Process(UDynamicMesh* DynaMesh, FGeometryScriptMeshSelection TrianglesFacingDown);
+public:
+	/** Please add a variable description */
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Components")
+		TObjectPtr<USphereComponent> RadiusVisualizer;
 
-	void OnRebuildGeneratedMesh(UDynamicMesh* TargetMesh);
+	/** Please add a variable description */
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Icicles Settings")
+		int32 RandomSeed;
 
-protected:
-	UPROPERTY(EditAnywhere, Category = "Icicles Settings")
-		int32 RandomSeed = 0;
+	/** Please add a variable description */
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Default")
+		FRandomStream RandomStream;
 
-	UPROPERTY(EditAnywhere, Category = "Icicles Settings")
-		float SphereRadius;
+	/** Please add a variable description */
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Default")
+		FVector SelfLocationWorld;
 
-	UPROPERTY(EditAnywhere)
+	/** Please add a variable description */
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Default")
+		FTransform SelfTransformWorldInverted;
+
+	/** Please add a variable description */
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Default")
+		TObjectPtr<UDynamicMesh> TempDynamicMesh;
+
+	/** Please add a variable description */
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Default")
+		FTransform MeshSourceLocalToWorld;
+
+	/** Please add a variable description */
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Icicles Settings")
+		double SphereRadius;
+
+	/** Please add a variable description */
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Icicles Settings")
 		float ExtrusionBias;
 
-	UPROPERTY(EditAnywhere)
-		int PointsToScatter;
+	/** Please add a variable description */
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Icicles Settings")
+		int32 PointsToScatter;
 
-	UPROPERTY(EditAnywhere)
-		float ConeRadius;
+	/** Please add a variable description */
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Icicles Settings")
+		double ConeRadius;
 
-	UPROPERTY(EditAnywhere)
+	/** Please add a variable description */
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Icicles Settings")
 		float ConeHeight;
 
-	UPROPERTY(EditAnywhere)
+	/** Please add a variable description */
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Default")
+		float ConeRadiusCurrent;
+
+	/** Please add a variable description */
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Icicles Settings")
 		float DecimationTolerance;
 
-	UPROPERTY(EditAnywhere)
-		AStaticMeshActor* ActorToSample;
+	/** Please add a variable description */
+	UPROPERTY(BlueprintReadWrite, EditInstanceOnly, Category = "Icicles Settings")
+		TObjectPtr<AStaticMeshActor> ActorToSample;
 
-private:
-	FVector SelfWorldLocation;
-	FTransform SelfWorldTransformInverted;
-	UDynamicMesh* TempDynamicMesh;
-	FTransform MeshSourceLocalToWorld;
-	float CurrentConeRadius;
 };
