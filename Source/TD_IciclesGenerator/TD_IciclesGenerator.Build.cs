@@ -8,6 +8,6 @@ public class TD_IciclesGenerator : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "HeadMountedDisplay", "EnhancedInput", "GeometryFramework"});
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "HeadMountedDisplay", "EnhancedInput", "GeometryFramework", "ProceduralMeshComponent", "GeometryScriptingCore", "DynamicMesh", "UMG"});
 	}
 }
