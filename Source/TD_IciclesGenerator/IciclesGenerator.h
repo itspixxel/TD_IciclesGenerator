@@ -81,22 +81,6 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Icicles Settings")
 		float DecimationTolerance;
 
-	/** Please add a variable description */
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Icicles Settings")
-		int32 RemeshIterations;
-
-	/** Please add a variable description */
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Icicles Settings")
-		EGeometryScriptUniformRemeshTargetType RemeshType;
-
-	/** Please add a variable description */
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Icicles Settings")
-		int32 RemeshTargetTriangleCount;
-
-	/** Please add a variable description */
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Icicles Settings")
-		float RemeshTargetEdgeLength;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Icicles Settings")
+	UPROPERTY(BlueprintReadWrite, Category = "Icicles Settings")
 	FGeometryScriptMeshSelection TrianglesFacingDown;
 };
